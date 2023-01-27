@@ -1,0 +1,44 @@
+{% extends 'shop/layout/main.html' %}
+
+{% block title %}
+
+Categorias | TuTienda
+
+{% endblock title %}
+
+{% block content %}
+
+<br>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h1 class="mb-3">CATEGORIAS</h1>
+                    <hr style="border-color: aliceblue;">
+                    {% include 'shop/inc/message.html' %}
+                    
+                </div>
+
+                {% for item in category %}
+                
+                <div class="col-md-4 col-lg-3 ">
+                    <a href="{% url 'category' item.name %}"> 
+                        <div class="card  my-3">
+                            <img src="{{ item.image.url }}" class="card-image-top" alt="Category">
+                        
+                            <div class="card-body">
+                                <h5 class="card-title text-dark ">{{ item.name }}</h5>
+                                <p class="card-text text-dark">{{ item.description}}</p>
+                            </div>
+                
+                        
+                        </div>
+                    </a>
+                </div>
+                
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+{% endblock content %}

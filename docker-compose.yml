@@ -1,0 +1,34 @@
+version: '3'
+
+services:
+  django_app:
+    build: .
+    
+      
+    volumes:
+      - static_vol:/app/static
+      - media_vol:/app/media
+    ports:
+      - "8000:8000"
+
+  db:
+    image: postgres:13
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - "POSTGRES_HOST_AUTH_METHOD=trust"
+
+  nginx:
+    build: ./nginx
+    volumes:
+      - static_vol:/app/static
+      - media_vol:/app/media
+    ports:
+      -  "80:80"
+    depends_on:
+      - django_app
+
+volumes:
+  static_vol:
+  media_vol:
+  postgres_data:

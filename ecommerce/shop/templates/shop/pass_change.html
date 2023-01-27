@@ -1,0 +1,56 @@
+{% extends 'shop/layout/main.html' %}
+
+{% block title %}
+
+register | TuTienda
+
+{% endblock title %}
+
+{% block content %}
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-12 mt-3 text-center">
+            <h2><b>CAMBIAR CONTRASEÑA usuario : {{user.username}}</b></h2>
+            <hr style="border-color:antiquewhite;">
+            {% include 'shop/inc/message.html' %}
+        </div>
+    </div>
+    <section class="py-4 my-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <div class="mb-4">
+                            <label for="" class="form-label">Contraseña actual</label>
+                            {{form.old_password}}
+                            
+                        </div>
+                        <div class="mb-4">
+                            <label for="" class="form-label">Nueva contraseña</label>
+                            {{form.new_password1}}
+                            
+                        </div>
+                        <div class="mb-4">
+                            <label for="" class="form-label">Confirme nueva cotraseña</label>
+                            {{form.new_password2}}
+                            
+                        </div>
+                        
+
+                        <button type="submit" class="btn btn-primary">Cambiar Contraseña</button>
+                    </form>   
+                    
+                </div>
+                    
+            </div>
+        </div>
+
+    </section>
+
+</div>
+
+
+
+{% endblock content %}

@@ -1,0 +1,50 @@
+{% extends 'shop/layout/main.html' %}
+
+{% block title %}
+
+Favourite | TuTienda
+
+{% endblock title %}
+
+{% block content %}
+
+    
+    <section class="bg-light py-4 my-5 ">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h4 class="mb-3">Productos Favoritos</h4>
+                    <hr style="border-color: aliceblue;">
+                    {% include 'shop/inc/message.html' %}
+                    <a href="{% url 'home' %}" class="btn btn-primary float-end">Atras</a>
+                </div>
+
+                <table class="">
+                    <tr>
+                        <th>Imagen</th>
+                        <th>Producto</th>
+                        <th>Precio</th>
+                        <th>-</th>
+                    </tr>
+                    
+                    {% for item in fav %}
+
+                        <tr>
+                            
+                            <td><img src="{{item.product.product_image.url}}" height="75px" alt="{{item.product.name}}"></a></td>
+                            <td>{{item.product.name}}</td>
+                            <td>{{item.product.selling_price | stringformat:'d'}}</td>
+                            <td><a href="{% url 'fav_remove' item.id  %}" onclick="return confirm('¿Seguro quiere eliminar el producto?')" class="btn btn-danger btn-sm "><i class="fa-fa-trash"></i>Eliminar</></a> </td>
+                        </tr>
+                
+                    {% endfor %}
+                   
+
+                </table>
+            </div>
+        </div>
+    </section>
+
+   
+
+{% endblock content %}

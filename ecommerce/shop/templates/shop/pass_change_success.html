@@ -1,0 +1,36 @@
+{% extends 'shop/layout/main.html' %}
+
+{% block title %}
+
+Registrarse | TuTienda
+
+{% endblock title %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-12 mt-3">
+            <h2><b>Terminado</b></h2>
+            <hr style="border-color:antiquewhite;">
+            {% include 'shop/inc/message.html' %}
+        </div>
+    </div>
+    <section class="py-4 my-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1><b>Contraseña cambiada con exito</b></h1> 
+                    <a href="{% url 'home' %}" class="btn btn-primary">Atras</a>
+                    
+                </div>
+                    
+            </div>
+        </div>
+
+    </section>
+
+</div>
+
+
+
+{% endblock content %}

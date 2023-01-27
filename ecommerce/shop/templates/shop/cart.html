@@ -1,0 +1,81 @@
+{% extends 'shop/layout/main.html' %}
+
+{% block title %}
+
+cart | TuTienda
+
+{% endblock title %}
+
+{% block content %}
+
+    
+    <section class="bg-light py-4 my-5 ">
+        <div class="container">
+            <div class="row product_data">
+                <div class="col-12">
+                    <h4 class="mb-3">Productos en carrito</h4>
+                    <hr style="border-color: aliceblue;">
+                    {% include 'shop/inc/message.html' %}
+                    <a href="{% url 'home' %}" class="btn btn-primary float-end">Atras</a>
+                    
+                </div>
+
+                {% if cart %}
+
+                    <table class="">
+                        <tr>
+                            <th>Imagen</th>
+                            <th>Producto</th>
+                            <th>Precio por unidad</th>
+                            <th>Unidades</th>
+                            <th>Precio total</th>
+                            <th></th>
+                        </tr>
+                        
+                        {% for item in cart %}
+
+                        <tr>
+                            
+                            <td><img src="{{item.product.product_image.url}}" height="75px" alt="{{item.product.name}}"></td>
+                            <td>{{item.product.name}}</td>
+                            <td>$ {{item.product.selling_price | stringformat:'d'}}</td>
+                            <td>
+                                {{item.product_qty}}
+                            </td>
+                            <td class="amt"> {{item.total_cost | stringformat:'d'}}</td>
+                            <td><a href="{% url 'cart_remove' item.id  %}" onclick="return confirm('¿Seguro quiere eliminar el producto?')" class="btn btn-danger btn-sm "><i class="fa-fa-trash"></i>Eliminar</></a> </td>
+                        </tr>
+                    
+                        {% endfor %}
+                        
+                        <tr>
+                            <br>
+                            <td></td>
+                            <td></td>
+                            <td colspan="2"><b>Precio Total</b></td>
+                            <td id="net" colspan="5">0</td>
+                        </tr>
+
+                    </table>
+                    <hr>
+                    <a href="{% url "cheackout" %}" class="btn btn-outline-success">Pagar</a>
+                {% else %}
+                   <h4>Tu carrito esta vacio</h4>
+
+                {% endif %}
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const nodes=document.querySelectorAll('.amt')
+        const arr=Array.from(nodes);
+        const res=arr.reduce((acc,curr)=>{
+            return acc+=Number(curr.textContent)
+        },0);
+        document.getElementById("net").innerHTML="$ "+res;
+
+       
+    </script>
+
+{% endblock content %}

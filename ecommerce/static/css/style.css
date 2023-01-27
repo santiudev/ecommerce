@@ -1,0 +1,59 @@
+
+html{
+    font-size: 14px;
+}
+
+body{
+    font-family: 'Oswald', sans-serif;
+}
+a{
+    text-decoration: none;
+}
+
+.old_price{
+    font-weight: bold;
+    color: #ff19cf;
+}
+
+.new_price{
+    font-weight: bold;
+    color: black;
+}
+
+.card{
+    border-radius: 5%;
+    box-shadow: 0.5px 0.5px #ff19cf;
+}
+
+.search-bar{
+    width: 30% !important;
+    color: #ff19cf;
+}
+
+.btn{
+    background-color:#ff19cf;
+  border: 2px solid #ff19cf;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  transition-duration: 0.4s;
+}
+
+.btn:hover {
+    background-color: white;
+    color: #ff19cf;
+    border: 2px solid #ff19cf;
+}
+
+
+
+.nav-item:hover {
+    color :#ff19cf;
+    background-color:#ff19cf;
+    
+}
+
+
