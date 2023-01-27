@@ -9,10 +9,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 SECRET_KEY = config('SECRET_KEY')
-DEBUG = DEBUG = config('DEBUG')
+DEBUG = config('DEBUG')
 
 
-
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -118,6 +118,4 @@ STATIC_URL = "/static/"
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT=os.path.join(BASE_DIR,'media')
-
-
 
