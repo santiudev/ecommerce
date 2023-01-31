@@ -327,7 +327,7 @@ def place_order(request):
         return redirect("/")
 
 
-#Payment (Razorpay)
+#Payment (Pending)
 
 
 #My Orderspage
